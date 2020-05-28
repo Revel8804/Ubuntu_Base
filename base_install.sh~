@@ -1,8 +1,5 @@
 #!/bin/bash
 UPDATES=/scripts/updates.sh
-apt update
-apt install joe
-apt install fail2ban
 mkdir /scripts/
 mkdir /scripts/logs
 if test -f "$UPDATES"; then
