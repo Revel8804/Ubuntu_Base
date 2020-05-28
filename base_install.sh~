@@ -2,7 +2,10 @@
 UPDATES=/scripts/updates.sh
 HOSTNAMEFILE=/etc/hostname
 read -p 'Hostname: ' HOSTNAME
-echo "$HOSTNAME" | tee /etc/hostname
+echo "$HOSTNAME" | tee /etc/hostname >/dev/null
+sed -a "s/127.0.1.1*/127.0.1.1 ${HOSTNAME}/g" /etc/hosts
+cat /etc/hosts
+exit
 apt update
 apt install joe
 apt install fail2ban
