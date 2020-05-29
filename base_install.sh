@@ -2,7 +2,7 @@
 UPDATES=/scripts/updates.sh
 HOSTNAMEFILE=/etc/hostname
 read -p 'Hostname: ' HOSTNAME
-read -ps 'Password: ' PASSWORD
+read -p 'Password: ' PASSWORD
 echo "Administrator:$PASSWORD" | chpasswd
 echo "$HOSTNAME" | tee /etc/hostname >/dev/null
 sed -i "s/template/${HOSTNAME}/g" /etc/hosts
