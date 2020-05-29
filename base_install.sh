@@ -7,7 +7,7 @@ echo "Administrator:$PASSWORD" | chpasswd
 echo "$HOSTNAME" | tee /etc/hostname >/dev/null
 sed -i "s/template/${HOSTNAME}/g" /etc/hosts
 apt update
-apt install joe fail2ban open-vm-tools
+apt install joe fail2ban open-vm-tools -y
 mkdir /scripts/
 mkdir /scripts/logs
 if test -f "$UPDATES"; then
