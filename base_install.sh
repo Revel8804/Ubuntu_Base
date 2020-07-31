@@ -3,7 +3,7 @@ UPDATES=/scripts/updates.sh
 HOSTNAMEFILE=/etc/hostname
 read -p 'Hostname: ' HOSTNAME
 read -p 'Password: ' PASSWORD
-echo -e "$PASSWORD\n$PASSWORD" | passwd administrator
+echo -e "$PASSWORD\n$PASSWORD" | passwd revel
 echo "$HOSTNAME" | tee /etc/hostname >/dev/null
 sed -i "s/template/${HOSTNAME}/g" /etc/hosts
 apt update
