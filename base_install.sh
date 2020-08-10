@@ -8,7 +8,7 @@ echo "$HOSTNAME" | tee /etc/hostname >/dev/null
 sed -i "s/template/${HOSTNAME}/g" /etc/hosts
 apt update
 apt install joe fail2ban open-vm-tools ntp -y
-mv ntp.conf /etc/ntp.conf
+mv /scripts/ntp.conf /etc/ntp.conf
 timedatectl set-timezone America/Chicago
 mkdir /scripts/logs
 if test -f "$UPDATES"; then
