@@ -18,3 +18,4 @@ printf '#!/bin/bash\napt clean\napt update\napt upgrade -y\napt dist-upgrade -y\
 chmod +x /scripts/updates.sh
 crontab -l | { cat; echo "0 4 * * * /scripts/updates.sh"; } | crontab -
 /scripts/updates.sh
+hi
