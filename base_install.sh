@@ -37,4 +37,5 @@ fi
 printf '#!/bin/bash\napt clean\napt update\napt upgrade -y\napt dist-upgrade -y\napt autoremove -y\napt autoclean -y\nif
 chmod +x /scripts/updates.sh
 crontab -l | { cat; echo "0 4 * * * /scripts/updates.sh"; } | crontab -
+rm /home/revel/firstrun.sh
 /scripts/updates.sh
