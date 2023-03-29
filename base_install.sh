@@ -8,6 +8,7 @@ read -p 'Gateway: ' GATEWAY
 read -p 'Subnet CIDR: ' SUB
 read -p 'DNS 1: ' DNS1
 read -p 'DNS 2: ' DNS2
+rm /etc/netplan/00-installer-config.yaml
 IF_NAME=$(ip route get 8.8.8.8 | awk '{print $5}')
 cat <<EOF > /etc/netplan/01-netcfg.yaml
 network:
