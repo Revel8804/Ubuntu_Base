@@ -11,18 +11,19 @@ read -p 'DNS 2: ' DNS2
 IF_NAME=$(ip route get 8.8.8.8 | awk '{print $5}')
 cat <<EOF > /etc/netplan/01-netcfg.yaml
 network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    $IF_NAME:
-      addresses:
-        - $IP/$SUB
-      gateway4: $GATEWAY
-      nameservers:
-        addresses: [$DNS1,$DNS2]
+    version: 2
+    renderer: networkd
+    ethernets:
+        $IF_NAME:
+                addresses:
+                    - $IP/$SUB
+                nameservers:
+                    addresses: [$DNS1,$DNS2]
+                routes:
+                    - to: default
+                      via: $GATEWAY
 EOF
 sudo netplan apply
-exit
 echo -e "$PASSWORD\n$PASSWORD" | passwd revel
 echo "$HOSTNAME" | tee /etc/hostname >/dev/null
 sed -i "s/template/${HOSTNAME}/g" /etc/hosts
