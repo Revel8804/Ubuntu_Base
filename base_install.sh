@@ -24,7 +24,6 @@ network:
                     - to: default
                       via: $GATEWAY
 EOF
-sudo netplan apply
 echo -e "$PASSWORD\n$PASSWORD" | passwd revel
 echo "$HOSTNAME" | tee /etc/hostname >/dev/null
 sed -i "s/template/${HOSTNAME}/g" /etc/hosts
